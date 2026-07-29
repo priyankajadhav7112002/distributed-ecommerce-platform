@@ -112,3 +112,21 @@ jobs:
           docker build \
             -t ${{ matrix.service }}:latest \
             ./${{ matrix.service }}
+
+  ui-docker-build:
+
+    needs:
+      - ui-build
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Build UI Docker Image
+        run: |
+          docker build \
+            -t ecommerce-ui:latest \
+            ./ecommerce-ui
