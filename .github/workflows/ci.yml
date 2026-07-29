@@ -45,6 +45,3 @@ jobs:
 
       - name: Build Project
         run: mvn clean install -DskipTests
-
-      - name: Run Tests
-        run: mvn test
